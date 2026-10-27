@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #f4f4f0;
+  --text-color: #111111;
+  --border-color: #111111;
+  --card-bg: #ffffff;
+  --grid-line: rgba(17, 17, 17, 0.055);
+  --grid-line-bold: rgba(17, 17, 17, 0.11);
+}
+
+.dark {
+  --bg-color: #0b0c10;
+  --text-color: #f4f4f0;
+  --border-color: #262a33;
+  --card-bg: #111319;
+  --grid-line: rgba(255, 255, 255, 0.04);
+  --grid-line-bold: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Exact Reference Engineering Blueprint Draft Paper Grid */
+.draft-grid {
+  background-color: #f4f4f0;
+  background-image: 
+    linear-gradient(to right, rgba(17, 17, 17, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 17, 17, 0.055) 1px, transparent 1px),
+    linear-gradient(to right, rgba(17, 17, 17, 0.11) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 17, 17, 0.11) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px, 120px 120px, 120px 120px;
+}
+
+.dark .draft-grid {
+  background-color: #0b0c10;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px, 120px 120px, 120px 120px;
+}
+
+/* Crisp Blueprint Outline Heading matching DHAR */
+.blueprint-outline {
+  -webkit-text-stroke: 1.5px #111111;
+  color: transparent;
+  letter-spacing: 0.04em;
+}
+
+.dark .blueprint-outline {
+  -webkit-text-stroke: 1.5px #f4f4f0;
+  color: transparent;
+  letter-spacing: 0.04em;
+}
+
+/* Corner Frame Crop Brackets */
+.corner-frame {
+  position: relative;
+}
+
+.corner-frame::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #111111;
+  border-left: 2px solid #111111;
+  pointer-events: none;
+}
+
+.corner-frame::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid #111111;
+  border-right: 2px solid #111111;
+  pointer-events: none;
+}
+
+.dark .corner-frame::before {
+  border-color: #f4f4f0;
+}
+.dark .corner-frame::after {
+  border-color: #f4f4f0;
+}
+
+/* Subtle scanline animation */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-scanline {
+  animation: scanline 4s linear infinite;
+}
+
+/* Biometric laser sweep animation */
+@keyframes laserSweep {
+  0% {
+    top: 0%;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0.3;
+  }
+}
+
+.animate-laser {
+  animation: laserSweep 3.5s ease-in-out infinite alternate;
+}
+
+/* Subtle architectural scan hairline */
+@keyframes subtleScan {
+  0% {
+    top: 2%;
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    top: 98%;
+    opacity: 0.1;
+  }
+}
+
+.animate-scanline-subtle {
+  animation: subtleScan 4s ease-in-out infinite alternate;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f4f0;
+  border-left: 1px solid #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #111111;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0b0c10;
+  border-left: 1px solid #333;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #444;
+}
