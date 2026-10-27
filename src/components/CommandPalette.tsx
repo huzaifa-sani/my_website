@@ -132,6 +132,14 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
         onClose();
       },
     },
+    {
+      label: "Open Codeforces Profile",
+      category: "External",
+      action: () => {
+        window.open(PORTFOLIO_DATA.personal.codeforces, "_blank");
+        onClose();
+      },
+    },
   ];
 
   const filtered = actions.filter((a) =>

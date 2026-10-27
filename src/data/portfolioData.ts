@@ -78,6 +78,7 @@ export const PORTFOLIO_DATA = {
     statusText: "AVAILABLE FOR PRODUCTION & CONTRACT",
     availableForHire: true,
     systemId: "HZ-SYS-01",
+    cvFilename: "/huzaifa_cv.pdf",
     github: "https://github.com/huzaifa-sani",
     linkedin: "https://www.linkedin.com/in/huzaifa-sani-525b36304",
     codeforces: "https://codeforces.com/profile/huzaifa-sani",

@@ -94,6 +94,17 @@ export const Footer: React.FC = () => {
                 <Github size={15} />
               </a>
               <a
+                href={PORTFOLIO_DATA.personal.codeforces}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 border border-[#111111]/30 dark:border-zinc-700 hover:bg-amber-500 hover:text-black transition-colors"
+                title="Codeforces: huzaifa-sani"
+              >
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                  <path d="M4.5 7.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-3 0V9a1.5 1.5 0 0 1 1.5-1.5zm7.5-6a1.5 1.5 0 0 1 1.5 1.5v15a1.5 1.5 0 0 1-3 0V3a1.5 1.5 0 0 1 1.5-1.5zm7.5 9a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-3 0v-6a1.5 1.5 0 0 1 1.5-1.5z" />
+                </svg>
+              </a>
+              <a
                 href={PORTFOLIO_DATA.personal.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"

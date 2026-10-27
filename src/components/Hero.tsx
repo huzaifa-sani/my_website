@@ -88,9 +88,20 @@ export const Hero: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-emerald-600 transition-colors"
-                  title="GitHub"
+                  title="GitHub: huzaifa-sani"
                 >
                   <Github size={15} />
+                </a>
+                <a
+                  href={PORTFOLIO_DATA.personal.codeforces}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-amber-500 transition-colors"
+                  title="Codeforces: huzaifa-sani"
+                >
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                    <path d="M4.5 7.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-3 0V9a1.5 1.5 0 0 1 1.5-1.5zm7.5-6a1.5 1.5 0 0 1 1.5 1.5v15a1.5 1.5 0 0 1-3 0V3a1.5 1.5 0 0 1 1.5-1.5zm7.5 9a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-3 0v-6a1.5 1.5 0 0 1 1.5-1.5z" />
+                  </svg>
                 </a>
                 <a
                   href={PORTFOLIO_DATA.personal.linkedin}

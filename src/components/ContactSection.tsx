@@ -157,6 +157,21 @@ export const ContactSection: React.FC = () => {
                   </span>
                   <ExternalLink size={12} className="text-zinc-400" />
                 </a>
+
+                <a
+                  href={PORTFOLIO_DATA.personal.codeforces}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-2.5 border border-zinc-200 dark:border-zinc-800 hover:border-[#111111] dark:hover:border-zinc-600 transition-colors"
+                >
+                  <span className="flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" className="text-amber-500">
+                      <path d="M4.5 7.5a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-3 0V9a1.5 1.5 0 0 1 1.5-1.5zm7.5-6a1.5 1.5 0 0 1 1.5 1.5v15a1.5 1.5 0 0 1-3 0V3a1.5 1.5 0 0 1 1.5-1.5zm7.5 9a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-3 0v-6a1.5 1.5 0 0 1 1.5-1.5z" />
+                    </svg>
+                    <span>Codeforces / huzaifa-sani</span>
+                  </span>
+                  <ExternalLink size={12} className="text-zinc-400" />
+                </a>
               </div>
             </div>
 
