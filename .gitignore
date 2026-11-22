@@ -37,3 +37,4 @@ next-env.d.ts
 _extract*
 _cv_text.txt
 repos.json
+config.bat

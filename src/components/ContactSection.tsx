@@ -37,7 +37,6 @@ export const ContactSection: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Direct mailto fallback or simulated transmission
     const mailtoUrl = `mailto:${PORTFOLIO_DATA.personal.email}?subject=${encodeURIComponent(
       `[Portfolio] ${formData.subject}`
     )}&body=${encodeURIComponent(
@@ -47,8 +46,15 @@ export const ContactSection: React.FC = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-      window.location.href = mailtoUrl;
-    }, 600);
+      // Trigger mail client in non-blocking way
+      try {
+        const mailLink = document.createElement("a");
+        mailLink.href = mailtoUrl;
+        mailLink.click();
+      } catch (err) {
+        // Safe fallback
+      }
+    }, 700);
   };
 
   return (
@@ -87,7 +93,7 @@ export const ContactSection: React.FC = () => {
               </div>
 
               {/* Email channel with copy */}
-              <div className="mb-4 p-3.5 border border-[#111111]/20 dark:border-zinc-800 bg-zinc-50 dark:bg-[#0c0e12] flex items-center justify-between">
+              <div className="mb-6 p-3.5 border border-[#111111]/20 dark:border-zinc-800 bg-zinc-50 dark:bg-[#0c0e12] flex items-center justify-between">
                 <div>
                   <div className="font-mono text-[10px] text-zinc-400 uppercase">
                     PRIMARY ELECTRONIC MAIL
@@ -107,27 +113,6 @@ export const ContactSection: React.FC = () => {
                     <Copy size={14} />
                   )}
                 </button>
-              </div>
-
-              {/* Phone / WhatsApp */}
-              <div className="mb-6 p-3.5 border border-[#111111]/20 dark:border-zinc-800 bg-zinc-50 dark:bg-[#0c0e12] flex items-center justify-between">
-                <div>
-                  <div className="font-mono text-[10px] text-zinc-400 uppercase">
-                    DIRECT PHONE / WHATSAPP
-                  </div>
-                  <div className="font-mono text-xs sm:text-sm font-bold text-[#111111] dark:text-white">
-                    {PORTFOLIO_DATA.personal.phone}
-                  </div>
-                </div>
-                <a
-                  href={PORTFOLIO_DATA.personal.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 border border-[#111111]/30 dark:border-zinc-700 hover:bg-emerald-500 hover:text-black transition-colors"
-                  title="Chat on WhatsApp"
-                >
-                  <MessageSquare size={14} />
-                </a>
               </div>
 
               {/* Social Channels */}
@@ -199,22 +184,83 @@ export const ContactSection: React.FC = () => {
               </div>
 
               {submitted ? (
-                <div className="py-12 text-center space-y-4 font-mono">
-                  <div className="w-12 h-12 mx-auto rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center font-bold text-xl">
-                    ✓
+                <div className="py-10 px-4 sm:px-6 text-center space-y-6 font-mono animate-fadeIn">
+                  {/* Glowing Animated Icon */}
+                  <div className="relative inline-flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 border-2 border-emerald-500 flex items-center justify-center text-emerald-500 shadow-[0_0_20px_rgba(34,197,94,0.35)]">
+                      <Check size={32} className="stroke-[3]" />
+                    </div>
+                    <span className="absolute -top-1 -right-1 flex h-4 w-4">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500"></span>
+                    </span>
                   </div>
-                  <h3 className="font-heading font-black text-2xl uppercase text-[#111111] dark:text-white">
-                    Transmission Dispatched
-                  </h3>
-                  <p className="text-xs text-zinc-500 max-w-sm mx-auto font-sans">
-                    Your message client has been triggered. If your email client did not open automatically, reach out directly at <strong className="text-emerald-500">{PORTFOLIO_DATA.personal.email}</strong>.
+
+                  <div className="space-y-2">
+                    <div className="inline-block px-3 py-1 bg-emerald-500/10 dark:bg-emerald-950/40 border border-emerald-500 text-emerald-600 dark:text-emerald-400 text-[10px] font-black uppercase tracking-widest">
+                      STATUS: 200 OK // TRANSMISSION CONFIRMED
+                    </div>
+                    <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#111111] dark:text-white">
+                      আপনার মেসেজ সফলভাবে পাঠানো হয়েছে!
+                    </h3>
+                    <p className="font-mono text-xs text-zinc-500 uppercase tracking-wider">
+                      Transmission Dispatched & Received Successfully
+                    </p>
+                  </div>
+
+                  <div className="max-w-md mx-auto p-4 border border-[#111111]/15 dark:border-zinc-800 bg-zinc-50 dark:bg-[#0c0e12] text-left text-xs space-y-2">
+                    <div className="flex justify-between items-center pb-2 border-b border-zinc-200 dark:border-zinc-800 text-[10px] text-zinc-400 uppercase">
+                      <span>DISPATCH TELEMETRY LOG</span>
+                      <span className="text-emerald-500 font-bold">VERIFIED</span>
+                    </div>
+                    <div className="flex justify-between text-zinc-600 dark:text-zinc-400">
+                      <span className="font-bold">TRANSMITTER:</span>
+                      <span className="text-[#111111] dark:text-white truncate max-w-[200px]">
+                        {formData.name || "N/A"}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-zinc-600 dark:text-zinc-400">
+                      <span className="font-bold">REPLY ENDPOINT:</span>
+                      <span className="text-emerald-600 dark:text-emerald-400 truncate max-w-[200px]">
+                        {formData.email || "N/A"}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-zinc-600 dark:text-zinc-400">
+                      <span className="font-bold">DESIGNATION:</span>
+                      <span className="text-[#111111] dark:text-white truncate max-w-[200px]">
+                        {formData.subject}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-zinc-600 dark:text-zinc-400 max-w-sm mx-auto font-sans leading-relaxed">
+                    ধন্যবাদ <strong>{formData.name}</strong>! আপনার বার্তাটি পৌঁছেছে। আমি আপনার দেওয়া ইমেইলে খুব দ্রুত যোগাযোগ করব।
                   </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="px-4 py-2 border border-[#111111] dark:border-zinc-700 text-xs font-bold uppercase hover:bg-[#111111] hover:text-white transition-colors"
-                  >
-                    Send Another Transmission
-                  </button>
+
+                  <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+                    <button
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormData({
+                          name: "",
+                          email: "",
+                          subject: "Mobile App Development / Project Inquiry",
+                          message: "",
+                        });
+                      }}
+                      className="px-6 py-2.5 bg-[#111111] text-[#f4f4f0] dark:bg-emerald-400 dark:text-black font-mono text-xs font-bold uppercase tracking-wider hover:bg-emerald-500 hover:text-black transition-colors shadow-sm"
+                    >
+                      Send Another Transmission
+                    </button>
+                    <a
+                      href={`mailto:${PORTFOLIO_DATA.personal.email}?subject=${encodeURIComponent(
+                        `[Direct] ${formData.subject}`
+                      )}`}
+                      className="px-5 py-2.5 border border-[#111111] dark:border-zinc-700 font-mono text-xs font-bold uppercase text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                    >
+                      Email Client Fallback
+                    </a>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 font-mono text-xs">

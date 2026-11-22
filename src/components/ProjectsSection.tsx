@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { PORTFOLIO_DATA, ProjectItem } from "@/data/portfolioData";
 import { ProjectModal } from "./ProjectModal";
 import {
@@ -225,6 +226,23 @@ export const ProjectsSection: React.FC = () => {
             ))}
           </div>
         )}
+
+        {/* Full Archive Link */}
+        <div className="mt-8 p-5 border-[1.5px] border-[#111111] dark:border-[#262a33] bg-zinc-50 dark:bg-[#101218] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs shadow-[3px_3px_0px_0px_#111111] dark:shadow-[3px_3px_0px_0px_#22c55e]">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="text-[#111111] dark:text-zinc-200 font-bold">
+              Looking for the full catalog of 14+ client & agency applications?
+            </span>
+          </div>
+          <Link
+            href="/projects"
+            className="shrink-0 px-4 py-2 bg-[#111111] text-[#f4f4f0] dark:bg-emerald-400 dark:text-black font-bold uppercase tracking-wider hover:bg-emerald-500 hover:text-black transition-colors flex items-center gap-2"
+          >
+            <span>View Full Project Archive (14+)</span>
+            <ExternalLink size={13} />
+          </Link>
+        </div>
 
         {/* Modal Dialog */}
         <ProjectModal

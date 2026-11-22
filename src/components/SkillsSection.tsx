@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { PORTFOLIO_DATA, SkillCategory } from "@/data/portfolioData";
-import { Cpu, Terminal, Layers, Cloud, Wrench, CheckCircle } from "lucide-react";
+import { Cpu, Terminal, Layers, Cloud, Wrench, CheckCircle, ArrowRight } from "lucide-react";
 
 export const SkillsSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("ALL");
@@ -107,6 +108,29 @@ export const SkillsSection: React.FC = () => {
           >
             Review GitHub Commits
           </a>
+        </div>
+
+        {/* Project Archive Navigation Portal (Image 5 Link to Dedicated Projects Page) */}
+        <div className="mt-6 border-[1.5px] border-[#111111] dark:border-emerald-500/50 bg-white dark:bg-[#11141c] p-6 sm:p-7 shadow-[5px_5px_0px_0px_#111111] dark:shadow-[5px_5px_0px_0px_#22c55e] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 font-mono">
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>SPECIALIZED PORTFOLIO ARCHIVE // 14+ PRODUCTION & CLIENT BUILDS</span>
+            </div>
+            <h4 className="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight text-[#111111] dark:text-white">
+              Explore All Mobile Projects & Solutions
+            </h4>
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 font-sans max-w-2xl leading-relaxed">
+              আমি যেসব প্রজেক্ট ও ক্যাটাগরিতে কাজ করেছি (Fintech, Culinary Booking, On-Demand Salon, E-Commerce, Engineering Tools, EdTech, Travel ইত্যাদি)—সবগুলোর আইডিয়া, ফিচার ও আর্কিটেকচার বিস্তারিত দেখুন।
+            </p>
+          </div>
+          <Link
+            href="/projects"
+            className="group shrink-0 inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#111111] text-[#f4f4f0] dark:bg-emerald-400 dark:text-black font-mono text-xs font-black uppercase tracking-wider hover:bg-emerald-500 hover:text-black dark:hover:bg-emerald-300 transition-all shadow-[3px_3px_0px_0px_#22c55e] dark:shadow-[3px_3px_0px_0px_#ffffff]"
+          >
+            <span>VIEW ALL 14+ PROJECTS</span>
+            <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>

@@ -19,6 +19,33 @@ export interface ProjectItem {
   impact: string;
 }
 
+export interface ArchiveProjectItem {
+  id: string;
+  slug: string;
+  codeName: string;
+  title: string;
+  subtitle: string;
+  category:
+    | "Fintech & Finance"
+    | "On-Demand & Marketplace"
+    | "E-Commerce & Delivery"
+    | "Lifestyle & Wellness"
+    | "Utilities & Engineering"
+    | "EdTech & Education"
+    | "Travel & Hospitality"
+    | "Community & Spiritual"
+    | "Productivity & Networking";
+  overview: string;
+  keyFeatures: string[];
+  techStack: string[];
+  architecture: string;
+  platforms: string[];
+  status: "LIVE ON STORE" | "CLIENT PRODUCTION" | "FEATURED ARCHIVE";
+  storeUrl?: string;
+  role: string;
+  year: string;
+}
+
 export interface SkillCategory {
   title: string;
   code: string;
@@ -297,6 +324,334 @@ export const PORTFOLIO_DATA = {
       impact: "Used as base foundation across multiple client and agency applications.",
     },
   ] as ProjectItem[],
+
+  archiveProjects: [
+    {
+      id: "ARC-01",
+      slug: "privae-chef-app",
+      codeName: "joni project",
+      title: "Privae — Private Chef & Culinary Marketplace",
+      subtitle: "On-Demand Culinary Hiring & Chef Booking Ecosystem",
+      category: "On-Demand & Marketplace",
+      overview:
+        "Comprehensive mobile marketplace connecting fine-dining clients with verified private chefs for home dining, catering events, and bespoke gastronomic experiences. Engineered with real-time availability calendars, custom menu designers, and multi-tier booking coordination.",
+      keyFeatures: [
+        "Interactive Chef Discovery & Portfolio Showcase with verified client ratings and culinary specialties",
+        "Dynamic Real-time Availability & Booking Calendar with collision-prevention logic",
+        "Multi-Course Custom Menu Builder with allergen and dietary preference tags",
+        "Encrypted Direct In-App Chat and push telemetry for customer-chef event planning",
+        "Secure Milestone Escrow & Multi-Currency Payment Pipeline with Apple Pay / Google Pay support",
+      ],
+      techStack: ["Flutter", "Dart", "GetX", "Firebase Firestore", "RESTful APIs", "Stripe API", "Google Maps"],
+      architecture: "Clean Architecture (Domain, Data, Presentation) + GetX Reactive Controllers",
+      platforms: ["iOS (App Store)", "Android"],
+      status: "LIVE ON STORE",
+      storeUrl: "https://apps.apple.com/us/app/privae/id6756812318",
+      role: "Lead Mobile Developer",
+      year: "2026",
+    },
+    {
+      id: "ARC-02",
+      slug: "vurabridge-fintech-app",
+      codeName: "Fintech-App",
+      title: "VuraBridge — Fintech & Cross-Border Banking",
+      subtitle: "High-Security Digital Wallet & Telemetry Platform",
+      category: "Fintech & Finance",
+      overview:
+        "Enterprise-grade digital banking and cross-border financial application featuring multi-currency wallets, instant peer-to-peer (P2P) transfers, real-time FX currency conversions, and automated expenditure budgeting analytics.",
+      keyFeatures: [
+        "Biometric Security Suite with local FaceID / Fingerprint encryption and session timeout protection",
+        "Multi-Currency Digital Wallet supporting USD, EUR, GBP, and automated live conversion rates",
+        "Instant P2P Micro-Transfers with QR code scanning and direct phone number lookup",
+        "Visual Spending Analytics & Category Breakdown with interactive chart visualizers",
+        "Automated KYC Verification & Bank-Grade Payload Encryption for high compliance standards",
+      ],
+      techStack: ["Flutter", "Dart", "Clean Architecture", "RESTful APIs", "GetX", "Biometric Auth", "Secure Storage"],
+      architecture: "Feature-First Clean Architecture + Immutable State Handling",
+      platforms: ["Android", "iOS"],
+      status: "CLIENT PRODUCTION",
+      role: "Mobile App Engineer",
+      year: "2026",
+    },
+    {
+      id: "ARC-03",
+      slug: "lifestyle-habit-routine-app",
+      codeName: "lifestyle",
+      title: "Aura Lifestyle — Daily Habits & Wellness Tracker",
+      subtitle: "Holistic Routine Engineering & Habit Continuity Suite",
+      category: "Lifestyle & Wellness",
+      overview:
+        "Modern mindfulness, daily routine optimizer, and habit tracking mobile application designed to help users establish high-performance morning/evening habits, track wellness metrics, and maintain continuous productivity streaks.",
+      keyFeatures: [
+        "Customizable Morning & Evening Routine Engine with timed progress checklists",
+        "Smart Habit Continuity Tracking with visual heatmaps, milestone badges, and streak alerts",
+        "Mindfulness & Guided Audio Player with customizable soothing ambient sounds and breathwork timers",
+        "Hydration, Sleep, and Mood Logs with trend correlation insights",
+        "Offline-First Architecture backed by local persistent storage for uninterrupted tracking",
+      ],
+      techStack: ["Flutter", "Dart", "Hive DB", "GetX", "Local Notifications", "Audio Players SDK"],
+      architecture: "Model-View-Controller (MVC) + Reactive Persistence Layer",
+      platforms: ["Android", "iOS"],
+      status: "FEATURED ARCHIVE",
+      role: "Flutter Developer",
+      year: "2026",
+    },
+    {
+      id: "ARC-04",
+      slug: "beautyrun-delivery-app",
+      codeName: "fali beauty run",
+      title: "BeautyRun — Fast Cosmetics & Skincare Delivery",
+      subtitle: "Ultra-Fast Beauty Products Delivery Platform",
+      category: "E-Commerce & Delivery",
+      overview:
+        "High-performance cosmetics e-commerce mobile application delivering beauty products in under 30 minutes. Features intelligent skin-shade recommendations, dynamic product categorization, and live GPS courier tracking.",
+      keyFeatures: [
+        "Multi-Facet Beauty Catalog with real-time filters by skin type, brand, and ingredient safety",
+        "Interactive Shade Matcher helping users identify cosmetics suited to their skin tone",
+        "Real-Time Delivery Milestone Telemetry with live rider location on Google Maps",
+        "Persistent Local Cart with offline recovery, coupons, and 1-tap checkout pipelines",
+        "Push Notification Campaign Engine for flash sales, restock alerts, and order milestones",
+      ],
+      techStack: ["Flutter", "Dart", "Firebase FCM", "Google Maps SDK", "RESTful APIs", "GetX"],
+      architecture: "Clean Architecture + Domain-Driven Separation",
+      platforms: ["Android (Google Play)", "iOS"],
+      status: "LIVE ON STORE",
+      storeUrl: "https://play.google.com/store/apps/details?id=com.beauty.users",
+      role: "Core Flutter Engineer",
+      year: "2025",
+    },
+    {
+      id: "ARC-05",
+      slug: "nura-flower-gift-delivery",
+      codeName: "nura",
+      title: "Nura / Denior — Floral & Curated Gift Delivery",
+      subtitle: "Luxury Flower Arrangement & Celebration Delivery",
+      category: "E-Commerce & Delivery",
+      overview:
+        "Bespoke floral arrangement and celebration gifting mobile application allowing users to curate handcrafted bouquets, select occasion-specific gifts, attach personalized multimedia cards, and schedule doorstep delivery.",
+      keyFeatures: [
+        "Custom Bouquet Visualizer enabling users to combine floral stems, wrapping paper, and ribbons",
+        "Scheduled Date & Time Delivery Engine with precision delivery window guarantees",
+        "Personalized Greeting Card Editor supporting custom typography and photo attachments",
+        "Occasion Reminder Radar (Birthdays, Anniversaries) with automated gift suggestions",
+        "Real-Time Order Preparation Status with florist verification photos before dispatch",
+      ],
+      techStack: ["Flutter", "Dart", "RESTful APIs", "GetX", "Payment Gateway Integration", "Cached Network Image"],
+      architecture: "Modular Feature Architecture + GetX State Machine",
+      platforms: ["Android", "iOS"],
+      status: "CLIENT PRODUCTION",
+      role: "Lead Mobile Developer",
+      year: "2025",
+    },
+    {
+      id: "ARC-06",
+      slug: "diic-islamic-community-app",
+      codeName: "rukiyeat",
+      title: "DIIC — Islamic Community & Prayer Times Hub",
+      subtitle: "Spiritual Telemetry & Community Connectivity Portal",
+      category: "Community & Spiritual",
+      overview:
+        "Comprehensive Islamic spiritual companion and community engagement mobile platform featuring high-precision astronomical prayer timings, mosque community event streams, digital Quran reading, and charity donation channels.",
+      keyFeatures: [
+        "High-Precision GPS Prayer Time Engine calculating exact adhan timings with multiple juristic calculation methods",
+        "Interactive Digital Quran Reader with verse bookmarking, translations, and word-by-word audio playback",
+        "Mosque Event Stream & Halaqah Broadcasts with push notifications for community gatherings",
+        "Qibla Direction Compass powered by internal device magnetometer sensors with visual alignment",
+        "Zakat & Sadaqah Digital Donation Pipeline with instant payment verification",
+      ],
+      techStack: ["Flutter", "Dart", "Sensor API", "SQLite Local DB", "Audio Player", "Geolocation SDK", "GetX"],
+      architecture: "Clean Architecture + Offline-First Local Data Source",
+      platforms: ["Android", "iOS"],
+      status: "CLIENT PRODUCTION",
+      role: "Mobile App Engineer",
+      year: "2025",
+    },
+    {
+      id: "ARC-07",
+      slug: "zasulehry-lifestyle-app",
+      codeName: "jisan",
+      title: "Zasulehry — Concierge & Exclusive Lifestyle Suite",
+      subtitle: "Tailored Lifestyle Booking & Member Services",
+      category: "Lifestyle & Wellness",
+      overview:
+        "Exclusive members-only lifestyle and concierge mobile application offering priority reservations for private dining, curated city experiences, luxury wellness appointments, and personalized assistant communication.",
+      keyFeatures: [
+        "Curated City Experience Catalog featuring invitation-only events and premium dining slots",
+        "Direct Concierge Messaging Interface with live operator chat and ticket fulfillment",
+        "Digital Member Pass with animated QR codes for seamless offline venue check-in",
+        "Preference Profiling Engine customizing daily recommendations based on individual taste",
+        "Integrated Booking Vault keeping all confirmations, vouchers, and tickets accessible offline",
+      ],
+      techStack: ["Flutter", "Dart", "Clean Architecture", "REST APIs", "GetX", "QR Code Generation"],
+      architecture: "Clean Architecture + Reactive Controller Bindings",
+      platforms: ["Android", "iOS"],
+      status: "CLIENT PRODUCTION",
+      role: "Flutter Developer",
+      year: "2025",
+    },
+    {
+      id: "ARC-08",
+      slug: "sealun-beauty-services",
+      codeName: "sealun apps",
+      title: "Sealun — On-Demand Mobile Salon & Spa Services",
+      subtitle: "Doorstep Stylist & Beauty Professional Dispatch",
+      category: "On-Demand & Marketplace",
+      overview:
+        "On-demand doorstep salon booking application connecting clients with certified beauticians, hair stylists, and massage therapists for at-home luxury treatments.",
+      keyFeatures: [
+        "Service Catalog covering hair styling, facial treatments, bridal makeup, manicure, and spa",
+        "Certified Stylist Profiles with verified portfolio galleries and genuine client reviews",
+        "Real-Time Schedule Booking with dynamic calendar time slots and immediate confirmation",
+        "In-App Geolocation Tracking showing the beautician's transit progress to the customer's home",
+        "Safe & Cashless Digital In-App Checkout with transparent pricing and tipping",
+      ],
+      techStack: ["Flutter", "Dart", "Google Maps SDK", "Firebase Firestore", "RESTful APIs", "GetX"],
+      architecture: "Feature-First Architecture + GetX State Machine",
+      platforms: ["Android", "iOS"],
+      status: "CLIENT PRODUCTION",
+      role: "Mobile App Engineer",
+      year: "2025",
+    },
+    {
+      id: "ARC-09",
+      slug: "food-buddy-dining-app",
+      codeName: "first food buddy",
+      title: "Food Buddy (Brian Denner) — Gourmet Dining & Delivery",
+      subtitle: "Artisan Culinary Delivery & Table Reservation Suite",
+      category: "E-Commerce & Delivery",
+      overview:
+        "Gourmet culinary food ordering and fine dining table reservation application partnering with top-rated artisan restaurants, featuring live order tracking, menu customization, and instant seating reservations.",
+      keyFeatures: [
+        "Visual High-Definition Menu Explorer with dietary filters (Gluten-Free, Keto, Vegan)",
+        "Instant Table Reservation Engine with real-time floor plan and seating preference choice",
+        "Live Kitchen-to-Doorstep Tracking with real-time WebSocket updates and courier GPS position",
+        "Custom Meal Builder allowing clients to add notes, choose doneness, and adjust seasonings",
+        "Repeat Order Vault and smart recommendations based on previous order history",
+      ],
+      techStack: ["Flutter", "Dart", "WebSockets", "Google Maps SDK", "RESTful APIs", "GetX"],
+      architecture: "Clean Architecture + Reactive Data Streams",
+      platforms: ["Android", "iOS"],
+      status: "FEATURED ARCHIVE",
+      role: "Lead Mobile Developer",
+      year: "2025",
+    },
+    {
+      id: "ARC-10",
+      slug: "dhikr-daily-remembrance-app",
+      codeName: "nurdin apps",
+      title: "Dhikr — Daily Remembrance & Digital Tasbih",
+      subtitle: "Minimalist Spiritual Companion & Azkar Tracker",
+      category: "Community & Spiritual",
+      overview:
+        "Ad-free spiritual utility application dedicated to morning and evening daily adhkar, authentic supplications from the Sunnah, and a tactile digital tasbih counter with realistic haptic feedback.",
+      keyFeatures: [
+        "Tactile Digital Tasbih Counter with variable haptic vibration feedback and sound options",
+        "Categorized Morning, Evening, and Post-Prayer Adhkar with Arabic script and authentic references",
+        "High-Fidelity Audio Recitations for correct pronunciation and effortless memorization",
+        "Daily Habit Streak and count analytics encouraging consistent daily remembrance",
+        "100% Offline Capability with zero advertisements and zero tracking",
+      ],
+      techStack: ["Flutter", "Dart", "Haptic Engine", "SQLite Local Storage", "GetX", "Audio SDK"],
+      architecture: "MVC + Local Persistent Storage",
+      platforms: ["Android", "iOS"],
+      status: "FEATURED ARCHIVE",
+      role: "Mobile App Engineer",
+      year: "2025",
+    },
+    {
+      id: "ARC-11",
+      slug: "sparky-toolbox-app",
+      codeName: "sparky tool box",
+      title: "Sparky Tool Box — Industrial Electrical Suite",
+      subtitle: "Professional Engineering Utility & Field Calculators",
+      category: "Utilities & Engineering",
+      overview:
+        "Precision calculation and field utility suite for electrical engineers, electricians, and contractors. Packed with 9 mission-critical calculators including Ohm's Law, Voltage Drop, Wire Sizing, Conduit Fill, and Solar PV Sizing. Published on both Google Play Store and Apple App Store.",
+      keyFeatures: [
+        "9 Precision Electrical Field Calculators: Voltage Drop, Ohm's Law, Wire Ampacity, Conduit Fill, Motor FLA, Solar PV Sizing, Power Factor Correction, Box Fill, and Grounding",
+        "Instant Zero-Latency Reactive Recalculation as user inputs parameters",
+        "High-Contrast Daylight-Readable UI optimized for harsh outdoor field conditions",
+        "Calculation History & PDF Spec Sheet Export for project audits and client handoffs",
+        "Adherence to National Electrical Code (NEC) and International Electrotechnical Commission (IEC) standards",
+      ],
+      techStack: ["Flutter", "Dart", "Clean Architecture", "GetX", "Local Storage", "PDF Generation"],
+      architecture: "Model-View-Controller + Precision Math Engine",
+      platforms: ["Android (Google Play)", "iOS (App Store)"],
+      status: "LIVE ON STORE",
+      storeUrl: "https://play.google.com/store/apps/details?id=com.trinfjhtechsolutions.sparkytools",
+      role: "Sole Mobile Developer",
+      year: "2025",
+    },
+    {
+      id: "ARC-12",
+      slug: "tfp-academy-edtech-app",
+      codeName: "TFP-Academy-application",
+      title: "TFP Academy — EdTech Learning & Skills Platform",
+      subtitle: "Mobile Coursework, Video Streaming & Certification",
+      category: "EdTech & Education",
+      overview:
+        "Interactive mobile education platform delivering structured technical video courses, chapter quizzes, student-mentor forums, and verifiable course completion certificates.",
+      keyFeatures: [
+        "Adaptive Bitrate Video Streaming with playback speed control and lesson bookmarking",
+        "Offline Lesson Downloads allowing students to continue learning without active internet",
+        "Interactive Chapter Quizzes with immediate answer explanations and grading analytics",
+        "Community Discussion Q&A per lesson connecting students directly with instructors",
+        "Verifiable Digital Certificate Generation with unique verification IDs and PDF export",
+      ],
+      techStack: ["Flutter", "Dart", "Video Player SDK", "REST APIs", "GetX", "PDF Generation", "Secure Storage"],
+      architecture: "Clean Architecture + Domain-Driven Presentation",
+      platforms: ["Android", "iOS"],
+      status: "CLIENT PRODUCTION",
+      role: "Mobile App Engineer",
+      year: "2025",
+    },
+    {
+      id: "ARC-13",
+      slug: "pinlinks-digital-identity-app",
+      codeName: "PinLinks-mobile-app",
+      title: "PinLinks — Smart Link Hub & Digital Identity",
+      subtitle: "Bio-Link Customization & Networking Telemetry",
+      category: "Productivity & Networking",
+      overview:
+        "Modern digital business card and social link aggregator mobile application allowing creators, entrepreneurs, and professionals to create rich profile landing pages, share contacts via NFC/QR, and monitor click analytics.",
+      keyFeatures: [
+        "Visual Drag-and-Drop Bio-Page Builder with real-time responsive mobile preview",
+        "Dynamic Social Link Integrations with 50+ service presets and custom URL redirects",
+        "Instant QR Code Generator & NFC Contact Card Beam for rapid networking at conferences",
+        "Click-Through Analytics Telemetry tracking visitor traffic, geographic location, and link CTR",
+        "Custom Domain & Theme Styling with neon, dark, light, and brutalist color palettes",
+      ],
+      techStack: ["Flutter", "Dart", "QR Generator", "Dynamic Links", "RESTful APIs", "GetX"],
+      architecture: "Clean Architecture + Modular State Controllers",
+      platforms: ["Android", "iOS"],
+      status: "CLIENT PRODUCTION",
+      role: "Lead Mobile Developer",
+      year: "2025",
+    },
+    {
+      id: "ARC-14",
+      slug: "mijormon-travel-application",
+      codeName: "travel application",
+      title: "Mijormon — All-in-One Travel Itinerary & Tours",
+      subtitle: "Destination Discovery & Day-by-Day Trip Planner",
+      category: "Travel & Hospitality",
+      overview:
+        "Comprehensive travel planning and tour booking mobile application empowering travelers to discover exotic destinations, build collaborative day-by-day itineraries, book verified accommodations, and access maps offline.",
+      keyFeatures: [
+        "Visual Destination Explorer with curated photo galleries, travel guides, and local tips",
+        "Day-by-Day Itinerary Builder with automated route planning and activity duration estimates",
+        "Integrated Hotel & Tour Booking Engine with instant confirmation vouchers",
+        "Travel Expense Budget Tracker with multi-currency split and receipt uploads",
+        "Offline Itinerary Vault with offline map markers and essential emergency numbers",
+      ],
+      techStack: ["Flutter", "Dart", "Google Places API", "Offline Caching", "Clean Architecture", "GetX"],
+      architecture: "Clean Architecture + Domain-Driven UseCases",
+      platforms: ["Android", "iOS"],
+      status: "CLIENT PRODUCTION",
+      role: "Mobile App Engineer",
+      year: "2025",
+    },
+  ] as ArchiveProjectItem[],
 
   education: [
     {

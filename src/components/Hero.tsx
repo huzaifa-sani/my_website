@@ -1,14 +1,13 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import {
-  FileDown,
   ArrowRight,
   Mail,
   Github,
   Linkedin,
-  MessageSquare,
 } from "lucide-react";
 
 export const Hero: React.FC = () => {
@@ -44,7 +43,7 @@ export const Hero: React.FC = () => {
               </div>
             </div>
 
-            {/* Action Bar matching screenshot */}
+            {/* Action Bar */}
             <div className="w-full flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
               {/* Button 1: Execute Project (with corner frame brackets) */}
               <a
@@ -56,24 +55,15 @@ export const Hero: React.FC = () => {
                 <span>EXECUTE PROJECT</span>
               </a>
 
-              {/* Button 2: Download Spec */}
-              <a
-                href={PORTFOLIO_DATA.personal.cvFilename}
-                download="Huzaifa_Sani_CV.pdf"
-                className="border-[1.5px] border-[#111111] dark:border-[#f4f4f0] px-4 py-2.5 hover:bg-[#111111] hover:text-[#f4f4f0] dark:hover:bg-[#f4f4f0] dark:hover:text-[#111111] transition-colors font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-sm"
+              {/* Link 2: Access Manifest */}
+              <Link
+                href="/projects"
+                className="font-mono text-xs font-bold uppercase tracking-wider text-[#111111] dark:text-[#f4f4f0] hover:underline flex items-center gap-1.5 py-2 px-1 border border-transparent hover:border-zinc-300 dark:hover:border-zinc-700"
               >
-                <FileDown size={13} />
-                <span>DOWNLOAD SPEC</span>
-              </a>
-
-              {/* Link 3: Access Manifest */}
-              <a
-                href="#projects"
-                className="font-mono text-xs font-bold uppercase tracking-wider text-[#111111] dark:text-[#f4f4f0] hover:underline flex items-center gap-1 py-2 px-1"
-              >
-                <span>• ACCESS MANIFEST</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span>• VIEW ALL 14+ PROJECTS</span>
                 <ArrowRight size={13} />
-              </a>
+              </Link>
             </div>
 
             {/* Network Protocol Social Bar */}
@@ -108,18 +98,16 @@ export const Hero: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-sky-600 transition-colors"
-                  title="LinkedIn"
+                  title="LinkedIn: huzaifa-sani"
                 >
                   <Linkedin size={15} />
                 </a>
                 <a
-                  href={PORTFOLIO_DATA.personal.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-emerald-500 transition-colors"
-                  title="WhatsApp"
+                  href={`mailto:${PORTFOLIO_DATA.personal.email}`}
+                  className="hover:text-rose-500 transition-colors p-0.5"
+                  title={`Gmail: ${PORTFOLIO_DATA.personal.email}`}
                 >
-                  <MessageSquare size={15} />
+                  <Mail size={15} />
                 </a>
               </div>
             </div>
